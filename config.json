@@ -1,1 +1,44 @@
-[{"username": "James", "password": "5f4dcc3b5aa765d61d8327deb882cf99", "privilege": [2000, 2200]}, {"username": "James", "password": "5f4dcc3b5aa765d61d8327deb882cf99", "privilege": [2000, 2200]}]
+[
+    {
+        "id": "usr1",
+        "type": 1,
+        "username": "James",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "designation": "patient"
+    },
+    {
+        "id": "usr2",
+        "type": 2,
+        "username": "Kabilan",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "designation": "hospital_assistant"
+    },
+    {
+        "id": "usr3",
+        "type": 3,
+        "username": "Dinu",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "designation": "hospital_assistant"
+    },
+    {
+        "id": "usr4",
+        "type": 4,
+        "username": "Richards",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "designation": "lab_assistant"
+    },
+    {
+        "id": "usr5",
+        "type": 101,
+        "username": "Cheiyoon",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "designation": "doctor"
+    },
+    {
+        "id": "usr6",
+        "type": 1,
+        "username": "Jathu",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "designation": "patient"
+    }
+]

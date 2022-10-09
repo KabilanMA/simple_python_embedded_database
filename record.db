@@ -1,1 +1,16 @@
-{"894a9a5d-46e8-11ed-b600-b526d12bcc50": {"Data": "KABILAN IS THE ONE"}}
+{
+    "894a9a5d-46e8-11ed-b600-b526d12bcc50": {
+        "patient_id": "usr1",
+        "patient_name": "James",
+        "record_type": 1,
+        "sens_level": 4,
+        "data": "<THIS IS THE ACTUAL DATA TO BE STORED IN THE DATABASE>"
+    },
+    "69840102-479e-11ed-97ec-b526d12bcc50": {
+        "patient_id": "usr6",
+        "patient_name": "Jathu",
+        "record_type": "sickness",
+        "sens_level": 3,
+        "data": "THIS IS A DUMMY SICKNESS DATA FOR NEW USER"
+    }
+}

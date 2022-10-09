@@ -4,9 +4,11 @@ import signal
 import json
 from threading import Thread
 
+RECORD_TYPE = {'personal':1, 'sickness':2, 'drug_prescription':3, 'lab_test':4}
+
 class Database(object):
     
-    key_string_error = TypeError('Key/name must be a string!')
+    key_string_error = TypeError('Custom type error occured')
     
     def __init__(self, location, auto_dump, sig=True):
         
@@ -42,15 +44,15 @@ class Database(object):
         return True
     
     def dump(self):
-        json.dump(self.db, open(self.loco, 'wt'))
-        self.dthread = Thread(target=json.dump, args=(self.db, open(self.loco, 'wt')))
+        self.dthread = Thread(target=json.dump, args=(self.db, open(self.loco, 'w')), kwargs={'indent':4})
         self.dthread.start()
         self.dthread.join()
         return True
     
     def _loaddb(self):
         try:
-            self.db = json.load(open(self.loco, 'wt'))
+            with open(self.loco, 'r') as dataRecord:
+                self.db = json.load(dataRecord)
         except ValueError:
             if os.stat(self.loco).st_size == 0:
                 self.db = {}
@@ -96,9 +98,8 @@ class Database(object):
             total = len(self.db[name])
             return total
     
-    def append(self, key, more):
-        tmp = self.db[key]
-        self.db[key] = tmp + more
+    def append(self, key, value):
+        self.db[key] = value
         self._autodumpdb()
         return True
     
@@ -226,3 +227,101 @@ class Database(object):
         self.db = {}
         self._autodumpdb()
         return True
+    
+    def patientGetRecordDetails(self, user_id, detailType):
+        output = []
+        for key in self.db:
+            try:
+                temp_data = self.db[key]
+                if(temp_data['patient_id'] == user_id and temp_data['record_type'] == RECORD_TYPE[detailType] and temp_data['sens_level'] >=3):
+                    output.append(temp_data)
+            except KeyError:
+                print("Something wrong with the data structure, please reset the record.db database")
+                continue
+            
+        return output
+    
+    def staffGetRecord(self, staff_type, record_type, username='', user_id=''):
+        output = []
+        
+        if username !='':
+            for key in self.db:
+                try:
+                    temp_data = self.db[key]
+                    if(temp_data['patient_name'] == username and temp_data['record_type'] == RECORD_TYPE[record_type]):
+                        if (user_id != '' and temp_data['patient_id'] == user_id):
+                            raise self.key_string_error
+                            
+                        if staff_type == 1:
+                            print("Patients can't view this")
+                            return []
+                        elif staff_type > 100:
+                            output.append(temp_data)
+                        elif staff_type >1 and staff_type<100:
+                            if(temp_data['sens_level']>1 and temp_data['sens_level'] !=3):
+                                output.append(temp_data)
+                        else:
+                            return []
+                except KeyError as e:
+                    print("Something went wrong: {}".format(e.__str__()))
+                    continue
+                
+                except TypeError as e:
+                    print("Something went wrong: {}".format(e.__str__()))
+                    continue
+                
+            return output
+        
+        if user_id != '':
+            for key in self.db:
+                try:
+                    temp_data = self.db[key]
+                    if(temp_data['patient_id'] == user_id and temp_data['record_type'] == RECORD_TYPE[record_type]):
+                        if (user_id != '' and temp_data['patient_id'] == user_id):
+                            raise self.key_string_error
+                            
+                        if staff_type == 1:
+                            print("Patients can't view this")
+                            return []
+                        elif staff_type > 100:
+                            output.append(temp_data)
+                        elif staff_type >1 and staff_type<100:
+                            if(temp_data['sens_level']>1 and temp_data['sens_level'] !=3):
+                                output.append(temp_data)
+                        else:
+                            return []
+                except KeyError as e:
+                    print("Something went wrong: {}".format(e.__str__()))
+                    continue
+                
+                except TypeError as e:
+                    print("Something went wrong: {}".format(e.__str__()))
+                    continue
+                
+            return output
+        
+        if user_id == '' and username == '':
+            for key in self.db:
+                try:
+                    temp_data = self.db[key]
+                    if(temp_data['record_type'] == RECORD_TYPE[record_type]): 
+                        if staff_type == 1:
+                            print("Patients can't view this")
+                            return []
+                        elif staff_type > 100:
+                            output.append(temp_data)
+                        elif staff_type >1 and staff_type<100:
+                            if(temp_data['sens_level']>1 and temp_data['sens_level'] !=3):
+                                output.append(temp_data)
+                        else:
+                            return []
+                except KeyError as e:
+                    print("Something went wrong: {}".format(e.__str__()))
+                    continue
+                except TypeError as e:
+                    print("Something went wrong: {}".format(e.__str__()))
+                    continue
+            return output
+        return output
+    
+                 

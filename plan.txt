@@ -1,0 +1,53 @@
+{"894a9a5d-46e8-11ed-b600-b526d12bcc50": {"patient_id": "usr1", "patient_name":"James", "record_type": 1, "sens_level": 4, "data":"<THIS IS THE ACTUAL DATA TO BE STORED IN THE DATABASE>"}}
+
+
+{
+    "id":"usr1",
+    "type":1,
+    "username": "James", 
+    "password": "5f4dcc3b5aa765d61d8327deb882cf99", 
+    "designation": "patient" 
+}
+
+configUser:
+    id: string
+    type: integer
+    username: string
+    designation: string
+    password: string
+    
+
+record:
+    "uuid":"{data}"
+
+    data :
+     patient_id: string
+     patient_name: string
+     record_type: string
+        Personal Details: 1
+        Sickness Details: 2
+        Drug Prescriptions: 3
+        Lab Test Prescriptions: 4
+     senstivity_level: integer
+        1: can only read by doctor
+        2: can be read by the normal staff in the hospital
+        3: can be read by the patient related to the data
+        4: can be viewed by anyone in the system
+
+
+users:
+    patient: 1
+        can read only his record of all category
+        cannot write any record
+
+    hospital assistant: 2
+        can read and write personal details and sickness details of any patients
+    
+    pharmacist: 3
+        can read and write drug prescriptions details
+    
+    lab assistant: 4
+        can read and write lab test prescriptions details
+    
+    doctor: 101
+        can read and write all the records of any patient
