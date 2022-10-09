@@ -138,7 +138,7 @@ def userProcess(userType, username, user_id, password):
                 
                 data = input("Enter the relevant data record: ")
                 
-                sens_level = int(input("\nWhat is the sensitivity level of the data:\n1. Only the doctor can view.\n2. Hospital staffs including the doctor san view.\n3. Only the doctor and relevant patient can view.\n4. Any using the system can view.\n\t:"))
+                sens_level = int(input("\nWhat is the sensitivity level of the data:\n1. Only the doctor can view.\n2. Hospital staffs including the doctor can view.\n3. Only the doctor and relevant patient can view.\n4. Any using the system can view.\n\t:"))
                 if (sens_level<1 or sens_level>4):
                     raise KeyError
                 

@@ -40,5 +40,12 @@
         "username": "Jathu",
         "password": "5f4dcc3b5aa765d61d8327deb882cf99",
         "designation": "patient"
+    },
+    {
+        "id": "usr7",
+        "type": 1,
+        "username": "Levi Ackerman",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "designation": "patient"
     }
 ]

@@ -277,7 +277,7 @@ class Database(object):
                 try:
                     temp_data = self.db[key]
                     if(temp_data['patient_id'] == user_id and temp_data['record_type'] == RECORD_TYPE[record_type]):
-                        if (user_id != '' and temp_data['patient_id'] == user_id):
+                        if (username != '' and temp_data['patient_name'] == user_id):
                             raise self.key_string_error
                             
                         if staff_type == 1:

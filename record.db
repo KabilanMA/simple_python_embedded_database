@@ -12,5 +12,12 @@
         "record_type": "sickness",
         "sens_level": 3,
         "data": "THIS IS A DUMMY SICKNESS DATA FOR NEW USER"
+    },
+    "4e4f3d76-47b0-11ed-8752-b526d12bcc50": {
+        "patient_id": "usr7",
+        "patient_name": "Levi Ackerman",
+        "record_type": "drug_prescription",
+        "sens_level": 3,
+        "data": "THIS IS A DUMMY DRUG PRESCRIPTION DATA RECORD FOR TESTING"
     }
 }

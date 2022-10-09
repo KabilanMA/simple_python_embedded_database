@@ -1,14 +1,23 @@
-{"894a9a5d-46e8-11ed-b600-b526d12bcc50": {"patient_id": "usr1", "patient_name":"James", "record_type": 1, "sens_level": 4, "data":"<THIS IS THE ACTUAL DATA TO BE STORED IN THE DATABASE>"}}
-
-
 {
-    "id":"usr1",
-    "type":1,
-    "username": "James", 
-    "password": "5f4dcc3b5aa765d61d8327deb882cf99", 
-    "designation": "patient" 
+    "894a9a5d-46e8-11ed-b600-b526d12bcc50":
+    {
+        "patient_id": "usr1",
+        "patient_name":"James", 
+        "record_type": 1, 
+        "sens_level": 4, 
+        "data":"<THIS IS THE ACTUAL DATA TO BE STORED IN THE DATABASE>"
+    }
 }
 
+[
+    {
+        "id":"usr1",
+        "type":1,
+        "username": "James", 
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99", 
+        "designation": "patient" 
+    }
+]
 configUser:
     id: string
     type: integer
